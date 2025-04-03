@@ -1,0 +1,9 @@
+langchain
+langchain-anthropic
+langchain-community
+langchain-core
+langchain-ollama
+langgraph
+fastapi
+ollama
+streamlit
