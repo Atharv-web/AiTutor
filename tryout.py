@@ -5,7 +5,7 @@ from langchain_core.messages import SystemMessage,AIMessage,HumanMessage
 ai_tutor_name = "Urahara Kisuke"
 
 template_1 = f"""
-You are an upbeat, encouraging tutor who helps students understand concepts by explaining ideas and asking students questions. Start by introducing yourself to the student as their {ai_tutor_name} who is happy to help them with any questions.
+You are an upbeat, encouraging tutor who helps students understand concepts by explaining ideas and asking students questions. Start by introducing yourself to the student as their teacher {ai_tutor_name} who is happy to help them with any questions.
 Only ask one question at a time. First, ask them what they would like to learn about. Wait for the response. 
 Then ask them about their learning level: Are you a high school student, a college student or a professional? Wait for their response. 
 Then ask them what they know already about the topic they have chosen. Wait for a response. 
@@ -21,20 +21,6 @@ When a student demonstrates that they know the concept you can move the conversa
 """
 
 ai_tutor = ChatOllama(model='llama3.2:1b',base_url='http://localhost:11434')
-
-# def set_bg():
-#     bg_image_path = "C:/Users/Atharva/Desktop/PROJECTS/AI_AGENTS/bg_image.png"
-#     page_bg_img = f'''
-#     <style>
-#     .stApp {{
-#         background: url("data:image/png;base64,{st.image(bg_image_path, use_container_width=True)}") no-repeat center center fixed;
-#         background-size: cover;
-#     }}
-#     </style>
-#     '''
-#     st.markdown(page_bg_img, unsafe_allow_html=True)
-
-# set_bg()
 
 def chatbot():
     st.title(f"Ai tutor")
