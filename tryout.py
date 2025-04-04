@@ -98,15 +98,15 @@ def chatbot():
 
     tutor_profiles = {
         "Urahara Sensei": {
-            "image": "C:/Users/Atharva/Desktop/PROJECTS/AI_AGENTS/Ai_tutor/images/Kisuke_Urahara.jpg",
+            "image": "images/Kisuke_Urahara.jpg",
             "description": "Urahara Kisuke is an upbeat, curious mentor who uses humor and encouragement to help students learn through guided discovery."
         },
         "Kuchiki Sensei": {
-            "image": "C:/Users/Atharva/Desktop/PROJECTS/AI_AGENTS/Ai_tutor/images/Byakuya_Kuchiki.jpg",
+            "image": "images/Byakuya_Kuchiki.jpg",
             "description": "Kuchiki Byakuya is a calm, direct tutor who gives precise explanations. Perfect for learners who prefer structured, concise guidance."
         },
         "Yamamoto Sensei": {
-            "image": "C:/Users/Atharva/Desktop/PROJECTS/AI_AGENTS/Ai_tutor/images/Yamamoto_Genryusai.jpg",
+            "image": "images/Yamamoto_Genryusai.jpg",
             "description": "Yamamoto Genryūsai offers deep, thoughtful teaching with layered explanations and rich analogies for serious learners."
         }
     }
