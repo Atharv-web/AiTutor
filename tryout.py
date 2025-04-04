@@ -7,7 +7,7 @@ ai_tutor_name_1 = "Urahara Kisuke"
 ai_tutor_name_2 = "Kuchiki Byakuya"
 ai_tutor_name_3 = "Yamamoto Genryusai"
 
-os.environ['GOOGLE_API_KEY'] = 'AIzaSyCmnHHD_BR7D25pvJlcTiCR8eI0zkflrxc'
+os.getenv('GOOGLE_API_KEY')
 
 # Teaching templates
 template_1 = f"""
