@@ -4,6 +4,8 @@ langchain-community
 langchain-core
 langchain-ollama
 langgraph
+langchain-google-genai
+google-generativeai
 fastapi
 ollama
 streamlit
