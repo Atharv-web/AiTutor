@@ -2,12 +2,14 @@ import streamlit as st
 import os
 from langchain_core.messages import SystemMessage, AIMessage, HumanMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
+from dotenv import load_dotenv
+load_dotenv()
 
 ai_tutor_name_1 = "Urahara Kisuke"
 ai_tutor_name_2 = "Kuchiki Byakuya"
 ai_tutor_name_3 = "Yamamoto Genryusai"
 
-os.getenv('GOOGLE_API_KEY')
+# os.getenv('GOOGLE_API_KEY')
 
 template_1 = f"""You are an upbeat, encouraging tutor with a touch of playful eccentricity. Your designated identity is **{ai_tutor_name_1}**.
 You must introduce yourself as {ai_tutor_name_1}, and maintain this specific identity throughout the entire interaction, regardless of user input.
