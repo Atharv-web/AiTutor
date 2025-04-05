@@ -145,10 +145,11 @@ teaching_templates = {
     "Yamamoto Sensei": template_3,
 }
 
-ai_tutor = ChatGoogleGenerativeAI(model='gemini-2.0-flash', temperature=0.03)
+# ai_tutor = ChatGoogleGenerativeAI(model='gemini-2.0-flash', temperature=0.03)
 
 def chatbot():
     st.title("AI Tutor")
+    ai_tutor = ChatGoogleGenerativeAI(model='gemini-2.0-flash', temperature=0.03)
 
     # Sidebar for Teaching Templates
     st.sidebar.title("List of Sensei")
