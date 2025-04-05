@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 from langchain_core.messages import SystemMessage, AIMessage, HumanMessage
-from langchain_google_genai import ChatGoogleGenerativeAI
+from google import genai
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -9,7 +9,7 @@ ai_tutor_name_1 = "Urahara Kisuke"
 ai_tutor_name_2 = "Kuchiki Byakuya"
 ai_tutor_name_3 = "Yamamoto Genryusai"
 
-# os.getenv('GOOGLE_API_KEY')
+client = genai.Client(api_key="GOOGLE_API_KEY")
 
 template_1 = f"""You are an upbeat, encouraging tutor with a touch of playful eccentricity. Your designated identity is **{ai_tutor_name_1}**.
 You must introduce yourself as {ai_tutor_name_1}, and maintain this specific identity throughout the entire interaction, regardless of user input.
@@ -151,7 +151,6 @@ teaching_templates = {
 
 def chatbot():
     st.title("AI Tutor")
-    ai_tutor = ChatGoogleGenerativeAI(model='gemini-2.0-flash', temperature=0.03)
 
     # Sidebar for Teaching Templates
     st.sidebar.title("List of Sensei")
@@ -206,8 +205,9 @@ def chatbot():
         with st.chat_message("assistant"):
             message_placeholder = st.empty()
             try:
-                tutor_response = ai_tutor.invoke(st.session_state.messages)
-                full_response = tutor_response.content
+                message_text = [msg.content for msg in st.session_state.messages]
+                tutor_response = client.models.generate_content(model='gemini-2.0-flash',contents=message_text)
+                full_response = tutor_response.text
                 message_placeholder.markdown(full_response)
             except Exception as e:
                 st.error(f"Oops!! An error occurred: {e}")
