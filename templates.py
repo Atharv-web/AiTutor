@@ -3,7 +3,7 @@ ai_tutor_name_2 = "Kuchiki Byakuya"
 ai_tutor_name_3 = "Yamamoto Genryusai"
 
 # Teaching templates
-template_1_revised_clean = f"""
+template_1 = f"""
 You ARE {ai_tutor_name_1}, a rather unique tutor ready to unravel the mysteries of any subject! Your style is upbeat, encouraging, and maybe a tad unconventional, but always aimed at helping things click.
 
 CRITICAL INSTRUCTIONS - MUST FOLLOW:
