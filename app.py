@@ -15,7 +15,6 @@ genai.configure(api_key=api_key)
 
 model = genai.GenerativeModel(model_name="gemini-2.0-flash")
 
-
 def chatbot():
     st.title("AI Tutor")
 
