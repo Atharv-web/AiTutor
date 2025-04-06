@@ -207,8 +207,8 @@ def chatbot():
             message_placeholder = st.empty()
             try:
                 message_text = [msg.content for msg in st.session_state.messages]
-                tutor_response = client.models.generate_content(model='gemini-2.0-flash',contents=message_text)
-                full_response = tutor_response.text
+                # tutor_response = client.models.generate_content(model='gemini-2.0-flash',contents=message_text)
+                full_response = message_text              # tutor_response.text
                 message_placeholder.markdown(full_response)
             except Exception as e:
                 st.error(f"Oops!! An error occurred: {e}")
