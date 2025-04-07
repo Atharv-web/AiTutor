@@ -1,7 +1,8 @@
 import streamlit as st
 import os
-import google.generativeai as genai
+# import google.generativeai as genai
 from langchain_core.messages import SystemMessage, AIMessage, HumanMessage
+from langchain_ollama import ChatOllama
 from templates import teaching_templates,tutor_profiles
 from dotenv import load_dotenv
 load_dotenv()
@@ -10,12 +11,12 @@ ai_tutor_name_1 = "Urahara Kisuke"
 ai_tutor_name_2 = "Kuchiki Byakuya"
 ai_tutor_name_3 = "Yamamoto Genryusai"
 
-api_key = os.getenv("GOOGLE_API_KEY")
-genai.configure(api_key=api_key)
+# api_key = os.getenv("GOOGLE_API_KEY")
+# genai.configure(api_key=api_key)
 
 @st.cache_resource(show_spinner=True)
 def load_model():
-    return genai.GenerativeModel(model_name="gemini-2.0-flash")
+    return ChatOllama(model='llama3.2:1b',base_url="http://localhost:11434")
 
 model = load_model()
 
@@ -60,8 +61,8 @@ def chatbot():
         with st.chat_message("assistant"):
             message_placeholder = st.empty()
             try:
-                contents = [msg.content for msg in st.session_state.messages]
-                tutor_response = model.generate_content(contents=contents)
+                # contents = [msg.content for msg in st.session_state.messages]
+                tutor_response = model.invoke(contents=st.session_state.messages)
                 full_response = tutor_response.text
                 message_placeholder.markdown(full_response)
             except Exception as e:
