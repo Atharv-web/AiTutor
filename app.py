@@ -63,7 +63,7 @@ def chatbot():
             try:
                 # contents = [msg.content for msg in st.session_state.messages]
                 tutor_response = model.invoke(contents=st.session_state.messages)
-                full_response = tutor_response.text
+                full_response = tutor_response.content
                 message_placeholder.markdown(full_response)
             except Exception as e:
                 st.error(f"Oops!! An error occurred: {e}")
