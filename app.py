@@ -13,7 +13,11 @@ ai_tutor_name_3 = "Yamamoto Genryusai"
 api_key = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=api_key)
 
-model = genai.GenerativeModel(model_name="gemini-2.0-flash")
+@st.cache_resource(show_spinner=True)
+def load_model():
+    return genai.GenerativeModel(model_name="gemini-2.0-flash")
+
+model = load_model()
 
 def chatbot():
     st.title("AI Tutor")
