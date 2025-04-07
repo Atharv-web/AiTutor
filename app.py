@@ -16,9 +16,10 @@ ai_tutor_name_3 = "Yamamoto Genryusai"
 
 @st.cache_resource(show_spinner=True)
 def load_model():
-    return ChatOllama(model='llama3.2:1b',base_url="http://localhost:11434")
+    model = ChatOllama(model='llama3.2:1b',base_url='http://localhost:11434')
+    return model
 
-model = load_model()
+ai_tutor = load_model()
 
 def chatbot():
     st.title("AI Tutor")
@@ -62,7 +63,7 @@ def chatbot():
             message_placeholder = st.empty()
             try:
                 # contents = [msg.content for msg in st.session_state.messages]
-                tutor_response = model.invoke(contents=st.session_state.messages)
+                tutor_response = model.invoke(inputs=st.session_state.messages)
                 full_response = tutor_response.content
                 message_placeholder.markdown(full_response)
             except Exception as e:
