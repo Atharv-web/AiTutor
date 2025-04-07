@@ -14,12 +14,12 @@ ai_tutor_name_3 = "Yamamoto Genryusai"
 # api_key = os.getenv("GOOGLE_API_KEY")
 # genai.configure(api_key=api_key)
 
-@st.cache_resource(show_spinner=True)
-def load_model():
-    model = ChatOllama(model='llama3.2:1b',base_url='http://localhost:11434')
-    return model
+# @st.cache_resource(show_spinner=True)
+# def load_model():
+model = ChatOllama(model='llama3.2:1b',base_url='http://localhost:11434')
+    # return model
 
-ai_tutor = load_model()
+# ai_tutor = load_model()
 
 def chatbot():
     st.title("AI Tutor")
@@ -63,7 +63,7 @@ def chatbot():
             message_placeholder = st.empty()
             try:
                 # contents = [msg.content for msg in st.session_state.messages]
-                tutor_response = ai_tutor.invoke(st.session_state.messages)
+                tutor_response = model.invoke(st.session_state.messages)
                 full_response = tutor_response.content
                 message_placeholder.markdown(full_response)
             except Exception as e:
