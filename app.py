@@ -63,7 +63,7 @@ def chatbot():
             message_placeholder = st.empty()
             try:
                 # contents = [msg.content for msg in st.session_state.messages]
-                tutor_response = model.invoke(inputs=st.session_state.messages)
+                tutor_response = ai_tutor.invoke(inputs=st.session_state.messages)
                 full_response = tutor_response.content
                 message_placeholder.markdown(full_response)
             except Exception as e:
