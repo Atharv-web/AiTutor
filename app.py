@@ -16,7 +16,7 @@ ai_tutor_name_3 = "Yamamoto Genryusai"
 
 # @st.cache_resource(show_spinner=True)
 # def load_model():
-model = ChatOllama(model='llama3.2:1b')
+model = ChatOllama(model='llama3.2:1b',base_url="http://localhost:11434")
     # return model
 
 # ai_tutor = load_model()
